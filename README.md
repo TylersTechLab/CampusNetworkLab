@@ -6,6 +6,11 @@ Uploading soon...
 <h2>Topology</h2>
 
 
+temp rough
+
+![CampusNetworkLab](https://user-images.githubusercontent.com/112909705/192067237-f5668a6a-a819-44db-a618-8ebedc6b0cab.png)
+
+
 <h2>Description</h2>
 .....
 <br />
