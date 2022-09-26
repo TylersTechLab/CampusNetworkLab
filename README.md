@@ -5,6 +5,8 @@ UNDER CONSTRUCTION -- VERY ROUGH
 
 <h2>Topology</h2>
 
+incomplete rough
+![09_26_22_14_44_02](https://user-images.githubusercontent.com/112909705/192295614-6acc280b-dafe-4394-88c5-020d8c5c1905.png)
 
 
 
