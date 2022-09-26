@@ -26,7 +26,7 @@ Tier-3 and Tier-2 Campus Networks.
 ## Planned out network topology and addressing
 ...
 
-## Initial Configurations for the Access Layer Switches
+## Initial Configurations for the Access Layer
 
 First off, I renamed all of the networking devices in the topology, as well as in the software of Cisco IOS. I did this to better find out which ports were connected to other devices by using CDP. 
 
