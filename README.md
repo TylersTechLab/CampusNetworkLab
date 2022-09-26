@@ -91,7 +91,19 @@ At this point, PC0 and PC1, which are both in VLAN 10, are able to talk to one a
 ![09_26_22_14_29_53](https://user-images.githubusercontent.com/112909705/192294824-709be047-b52d-4eb1-9748-d147116e81cc.png)
 
 
+Using IP Routing to enable L3 capabilities and then configuring SVIs on DSW1 with IP addresses (default gateway, the last address of each subnet), subnet masks, and enabling the interfaces. 
 
+![09_26_22_15_34_22](https://user-images.githubusercontent.com/112909705/192309795-c20e005c-dee2-4d24-acac-4fd6b79783c1.png)
+
+With that being done, inter-vlan routing is now possible. Before pinging PC2 in VLAN 20 from PC0 in VLAN 10 was not possible. Attempting to ping again shows the first request being timed out as the ARP process goes through, and then we see replies. 
+
+![09_26_22_15_36_16](https://user-images.githubusercontent.com/112909705/192309954-98c5e705-b7ee-471e-81c1-264d64c8418e.png)
+
+The same IP routing capabilities, SVI configurations, and DGW IPs have been used on DSW2.
+
+![09_26_22_15_46_46](https://user-images.githubusercontent.com/112909705/192310141-edb4f67b-78a3-4e54-8afc-dd5614464146.png)
+
+Almost all of the configurations with the access layer are complete. The only thing remaining is setting up some load balancing capabilities to help even out the workload. The FHRP protocol that will be used is HSRP. 
 
 
 
