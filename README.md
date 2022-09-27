@@ -102,7 +102,7 @@ With that being done, inter-vlan routing is now possible. Before pinging PC2 in 
 
 ...
 
-![09_26_22_15_46_46](https://user-images.githubusercontent.com/112909705/192310141-edb4f67b-78a3-4e54-8afc-dd5614464146.png)
+(uplaod image with new IPs in configs)
 
 Almost all of the configurations with the access layer are complete. The only thing remaining is setting up some load balancing capabilities to help even out the workload, as well as some redundancy in case one of the L3 switches fails.  The FHRP protocol that will be used is HSRP. 
 
