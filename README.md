@@ -103,7 +103,15 @@ The same IP routing capabilities, SVI configurations, and DGW IPs have been used
 
 ![09_26_22_15_46_46](https://user-images.githubusercontent.com/112909705/192310141-edb4f67b-78a3-4e54-8afc-dd5614464146.png)
 
-Almost all of the configurations with the access layer are complete. The only thing remaining is setting up some load balancing capabilities to help even out the workload. The FHRP protocol that will be used is HSRP. 
+Almost all of the configurations with the access layer are complete. The only thing remaining is setting up some load balancing capabilities to help even out the workload, as well as some redundancy in case one of the L3 switches fails.  The FHRP protocol that will be used is HSRP. 
+
+Since there are 3 VLANs and 3 subnets, HSRP groups will need to be created on each DSW, and each group with be configured with their respective virtual IP, which is the default gateway IP from one of the subnets. 
+
+HSRPv2 will be used. The multicast address for v2 is 224.0.0.102.
+
+Also the Virtual MAC address used in v2 will be: 0000.0c9f.fXXX (XXX = HSRP group number)
+
+If configuring virtual IP address in group one, the virtual MAC address would be 0000.0c9f.f001
 
 
 
