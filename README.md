@@ -6,7 +6,8 @@ UNDER CONSTRUCTION -- VERY ROUGH
 <h2>Topology</h2>
 
 incomplete rough
-![09_26_22_14_44_02](https://user-images.githubusercontent.com/112909705/192295614-6acc280b-dafe-4394-88c5-020d8c5c1905.png)
+![09_27_22_02_55_12](https://user-images.githubusercontent.com/112909705/192413115-ec80d143-8b67-4ca4-aa1c-62c98c4bb95e.png)
+
 
 
 
@@ -99,7 +100,7 @@ With that being done, inter-vlan routing is now possible. Before pinging PC2 in 
 
 ![09_26_22_15_36_16](https://user-images.githubusercontent.com/112909705/192309954-98c5e705-b7ee-471e-81c1-264d64c8418e.png)
 
-The same IP routing capabilities, SVI configurations, and DGW IPs have been used on DSW2.
+...
 
 ![09_26_22_15_46_46](https://user-images.githubusercontent.com/112909705/192310141-edb4f67b-78a3-4e54-8afc-dd5614464146.png)
 
