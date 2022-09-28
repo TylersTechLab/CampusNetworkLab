@@ -83,7 +83,9 @@ PC0 and PC1, which are both in VLAN 10, are able to talk to one another. However
 
 ![09_26_22_14_29_53](https://user-images.githubusercontent.com/112909705/192560717-80599200-9da5-4062-a690-3c8f2c45bdd3.png)
 
-Using IP Routing to enable L3 capabilities and then configuring SVIs on DSW1 with IP addresses, subnet masks, and then enabling the interfaces.
+Using IP Routing to enable L3 capabilities and then configuring SVIs on DSW1 with IP addresses, subnet masks, and then enabling the interfaces. 
+
+The routing table is disabled initially on Cisco Layer 3 switches, and it must be enabled to perform Layer 3 routing. 
 
 ![09_26_22_15_34_22](https://user-images.githubusercontent.com/112909705/192560812-7d56d6ec-0a3f-46c7-bfe4-7ea9c346ab50.png)
 
@@ -94,7 +96,7 @@ The same IP routing capabilities and SVI configurations have been applied to DSW
 
 Almost all of the configurations for the access layer are complete. The only thing remaining is setting up some load balancing capabilities to help even out the workload, as well as some redundancy in case one of the L3 switches fail.  
 
-The FHRP protocol that will be used is HSRP. Setting up HSRP will give each VLAN a VIP, which will be the default gateway, and also allow for inter-vlan routing and being able to communicate with subnets outside of the access layer.  
+The FHRP protocol that will be used is HSRP. Setting up HSRP will give each VLAN a VIP, which will be the default gateway, and also allow for inter-VLAN routing and being able to communicate with subnets outside of the access layer.  
 
 Since there are 3 VLANs and 3 subnets, 3 HSRP groups will need to be created on each DSW, and each group with be configured with their respective virtual IP, which is the default gateway IP for each host and each SVI. 
 
@@ -123,15 +125,69 @@ VLAN30 on DSW2 will be Active
 
 ![09_27_22_15_45_09](https://user-images.githubusercontent.com/112909705/192561306-1b677fda-d8b0-43bd-b63e-5af8251d72dd.png)
 
-Also a quick test of inter-VLAN routing. It now works since FHRP has been configured. The first ping fails as the ARP process goes through, and then we get replies from the target host. 
+Also a quick test of inter-VLAN routing. It now works since FHRP has been configured. The first ping fails as the ARP process goes through, and then we get replies from the target host.
 
 
 ![09_27_22_15_20_10](https://user-images.githubusercontent.com/112909705/192561400-5c8c383c-c0c6-437d-9e8f-114227dd20c2.png)
 
 ##Distribution Layer 
 
+Similar to what was done in the Access Layer, using CDP in the Distribution Layer to discover other devices attached to DSW1. In this instance, we want to know which Core Switches are attached. 
+
+DSW1 Fas 0/4 <---> CSW1 Gig 1/0/1 
+DSW1 Fas 0/5 <---> CSW1 Gig 1/0/2 
+DSW1 Fas 0/6 <---> CSW2 Gig 1/0/3
+
+![09_27_22_18_35_24](https://user-images.githubusercontent.com/112909705/192667964-df4efba3-3e92-4845-baba-049b52115479.png)
 
 
+Looking for Core Switches from DSW2. 
+
+DSW2 Fas 0/4 <---> CSW2 Gig 1/0/1
+DSW2 Fas 0/5 <---> CSW2 Gig 1/0/2
+DSW2 Fas 0/6 <---> CSW1 Gig 1/0/3
+
+![09_28_22_00_47_02](https://user-images.githubusercontent.com/112909705/192668014-98ddf182-2161-43fc-8692-39d8dccabefe.png)
+
+Configuring EtherChannel, as well as IP addresses for the EtherChannel group. 
+
+![09_28_22_01_02_50](https://user-images.githubusercontent.com/112909705/192668062-7fbbb4d7-997d-4d1f-bcae-e5100cf29dfc.png)
+
+D denotes "Down", and the EtherChannel is not operational. The side CSW1 that is facing DSW1 needs to be configured with EtherChannel. 
+
+![09_28_22_01_12_26](https://user-images.githubusercontent.com/112909705/192668102-a8df42fa-4f33-4d76-8fde-b98ac58ebaf6.png)
+
+
+Checking the EtherChannel settings, things are now operational. 
+
+![09_28_22_01_12_45](https://user-images.githubusercontent.com/112909705/192668127-9bbfc32f-dc80-468c-ad9e-59a59b978ceb.png)
+
+
+The EtherChannel has been configured Between DSW2 and CSW2 in almost an identical way as DSW1 CSW2. The only difference being the addressing, where DSW2 is 192.168.255.9/30 and CSW2 being 192.168.255.10/30.
+
+Some times when setting up EtherChannel on both sides, the port links will go red on one of the sides. Normally shutting down the EtherChannel interface and enabling it will resolve this. 
+
+
+The final step for the Distribution Layer is configuring the single links from DSW1 to CSW2 and DSW2 to CSW1. 
+
+
+DSW1 Fas 0/6 <---> CSW2 Gig 1/0/3
+
+![09_28_22_02_11_20](https://user-images.githubusercontent.com/112909705/192668160-1f4b894c-292f-456c-99bc-7a1b0edfb6d5.png)
+
+DSW2 Fas 0/6 <---> CSW1 Gig 1/0/6
+
+![09_28_22_02_30_17](https://user-images.githubusercontent.com/112909705/192668212-172543d0-7d39-4291-8763-62a03aa22764.png)
+
+DSW1 being configured.
+
+![09_28_22_02_16_07](https://user-images.githubusercontent.com/112909705/192668255-3bf6f872-dd88-4e1c-b0c3-fc65ce1eeb47.png)
+
+CSW2 being configured.
+
+![09_28_22_02_24_11](https://user-images.githubusercontent.com/112909705/192668303-f2797fae-dd9e-4e3b-9dfa-b4e5e3d723eb.png)
+
+The same configurations have been applied to DSW2 and CSW1, except the IP addressing. CSW1: 192.168.255.14/30   DSW2: 192.168.255.13/30 
 
 
 
