@@ -46,12 +46,14 @@ I renamed all of the networking devices in the topology, as well as in the Cisco
 
 
 DSW1 Fas 0/1 <---> ASW1 Fas 0/3
+
 DSW2 Fas 0/1 <---> ASW1 Fas 0/4
 
 ![09_25_22_18_56_42](https://user-images.githubusercontent.com/112909705/192560070-d44b4a6c-2aa7-4d7d-a723-c231104a221e.png)
 
 
 DSW1 Fas 0/2 <---> ASW2 Fas 0/3
+
 DSW2 Fas 0/2 <---> ASW2 Fas 0/4
 
 ![09_25_22_19_05_35](https://user-images.githubusercontent.com/112909705/192560188-c835dd7e-1ecc-4ee6-afe1-9041324fb012.png)
@@ -134,7 +136,9 @@ Also a quick test of inter-VLAN routing. It now works since FHRP has been config
 Similar to what was done in the Access Layer, using CDP in the Distribution Layer to discover other devices attached to DSW1. In this instance, we want to know which Core Switches are attached. 
 
 DSW1 Fas 0/4 <---> CSW1 Gig 1/0/1 
+
 DSW1 Fas 0/5 <---> CSW1 Gig 1/0/2 
+
 DSW1 Fas 0/6 <---> CSW2 Gig 1/0/3
 
 ![09_27_22_18_35_24](https://user-images.githubusercontent.com/112909705/192667964-df4efba3-3e92-4845-baba-049b52115479.png)
@@ -143,7 +147,9 @@ DSW1 Fas 0/6 <---> CSW2 Gig 1/0/3
 Looking for Core Switches from DSW2. 
 
 DSW2 Fas 0/4 <---> CSW2 Gig 1/0/1
+
 DSW2 Fas 0/5 <---> CSW2 Gig 1/0/2
+
 DSW2 Fas 0/6 <---> CSW1 Gig 1/0/3
 
 ![09_28_22_00_47_02](https://user-images.githubusercontent.com/112909705/192668014-98ddf182-2161-43fc-8692-39d8dccabefe.png)
