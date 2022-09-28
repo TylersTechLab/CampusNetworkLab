@@ -8,7 +8,7 @@ UNDER CONSTRUCTION -- VERY ROUGH
 incomplete rough
 ![09_27_22_02_55_12](https://user-images.githubusercontent.com/112909705/192413115-ec80d143-8b67-4ca4-aa1c-62c98c4bb95e.png)
 
-
+(update after setting up the OSPF)
 
 
 
@@ -23,7 +23,7 @@ This lab configures many different features such as:
 - OSPF 
 - EtherChannels 
 
-
+(make more detailed)
 
 
 <br />
@@ -39,21 +39,20 @@ This lab configures many different features such as:
 
 ## Access Layer
 
+(Go through, make more detailed and clean) 
+
 I renamed all of the networking devices in the topology, as well as in the Cisco IOS software from their defaults. Other than being easier to read, I did this easily discover which ports were connected to which devices and their ports by using CDP, in case there was no topology to reference.
 
 
 
-DSW1's interface that is is connected to ASW1 is Fas 0/1 
-ASW1's interface that is connected to DSW1's interface is Fas 0/3
-DSW2's interface that is connected to ASW1 is Fas 0/1
-ASW1's interface that is connected to DSW2's interface is 0/4
+DSW1 Fas 0/1 <---> ASW1 Fas 0/3
+DSW2 Fas 0/1 <---> ASW1 Fas 0/4
 
 ![09_25_22_18_56_42](https://user-images.githubusercontent.com/112909705/192560070-d44b4a6c-2aa7-4d7d-a723-c231104a221e.png)
 
-DSW1's interface that is connected to ASW2 is Fas 0/2
-ASW2's interface that is is connected to DSW1 is Fas 0/3
-DSW2's interface that is connected to ASW2 is Fas 0/2
-ASW2's interface that is connected to DSW2 is Fas 0/4 
+
+DSW1 Fas 0/2 <---> ASW2 Fas 0/3
+DSW2 Fas 0/2 <---> ASW2 Fas 0/4
 
 ![09_25_22_19_05_35](https://user-images.githubusercontent.com/112909705/192560188-c835dd7e-1ecc-4ee6-afe1-9041324fb012.png)
 
@@ -130,7 +129,7 @@ Also a quick test of inter-VLAN routing. It now works since FHRP has been config
 
 ![09_27_22_15_20_10](https://user-images.githubusercontent.com/112909705/192561400-5c8c383c-c0c6-437d-9e8f-114227dd20c2.png)
 
-##Distribution Layer 
+## Distribution Layer 
 
 Similar to what was done in the Access Layer, using CDP in the Distribution Layer to discover other devices attached to DSW1. In this instance, we want to know which Core Switches are attached. 
 
