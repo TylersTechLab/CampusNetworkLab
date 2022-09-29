@@ -22,6 +22,7 @@ This lab configures many different features such as:
 - HSRP 
 - OSPF 
 - EtherChannels 
+- NAT
 
 (make more detailed)
 
