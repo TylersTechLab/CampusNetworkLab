@@ -6,7 +6,8 @@ UNDER CONSTRUCTION -- VERY ROUGH
 <h2>Topology</h2>
 
 incomplete rough
-![09_27_22_02_55_12](https://user-images.githubusercontent.com/112909705/192413115-ec80d143-8b67-4ca4-aa1c-62c98c4bb95e.png)
+![09_29_22_14_02_35](https://user-images.githubusercontent.com/112909705/193038548-84d5457a-c40f-4d56-b07d-87efffc7c41b.png)
+
 
 (update after setting up the OSPF)
 
