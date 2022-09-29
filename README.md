@@ -195,4 +195,31 @@ CSW2 being configured.
 The same configurations have been applied to DSW2 and CSW1, except the IP addressing. CSW1: 192.168.255.14/30   DSW2: 192.168.255.13/30 
 
 
+## Core Layer 
+
+
+Using CDP to find out which ports from CSW1 are linked to CSW2.
+
+CSW1 Gig 1/0/3 <---> CSW2 Gig 1/0/6
+CSW1 Gig 1/0/4 <---> CSW2 Gig 1/0/4
+
+![09_28_22_18_49_45](https://user-images.githubusercontent.com/112909705/193035900-34a94005-cb21-4d41-a150-5512d4b7d0a9.png)
+
+![09_28_22_19_10_13](https://user-images.githubusercontent.com/112909705/193036014-e3a52ebf-9e61-4041-bd1b-3288b6b61a1f.png)
+
+Configuring OSPF on all L3 switches and on the Router
+
+![09_29_22_13_25_43](https://user-images.githubusercontent.com/112909705/193036123-c3cd8c88-7fb7-4c2a-a1fb-ff46ed4d12c0.png)
+
+Example of routes learned
+
+![09_29_22_13_38_30](https://user-images.githubusercontent.com/112909705/193036275-72911058-52be-4f9f-93fb-2ccd2ce1fb4b.png)
+
+With the routes being advertised and established, now all of the host PCs can ping the Router. 
+
+![09_29_22_13_33_31](https://user-images.githubusercontent.com/112909705/193036379-cdfc6456-1ca0-40ae-b184-a2645dc37d28.png)
+
+
+
+
 
